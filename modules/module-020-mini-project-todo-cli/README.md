@@ -232,7 +232,7 @@ if __name__ == "__main__":
 ## Next Steps
 - Check your solution against `project/solution/todo.py`
 - Try extending the app: add due dates, priorities, or categories
-- Next module: [Module 021](../module-021-dictionaries/README.md) — Learn about dictionaries for key-value data
+- Next module: [Module 021: Tuples](../module-021-tuples/README.md) — Learn about dictionaries for key-value data
 
 ## Further Reading
 - [Real Python: Building a CLI App](https://realpython.com/command-line-interfaces-python-argparse/)

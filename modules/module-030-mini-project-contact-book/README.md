@@ -37,4 +37,4 @@ project/
 ```
 
 ## Next Module
-[Module 031](../module-031) *(not yet created)*
+[Module 031: Functions Basics](../module-031-functions-basics/README.md)

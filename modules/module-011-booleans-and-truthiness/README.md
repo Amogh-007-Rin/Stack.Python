@@ -3,10 +3,10 @@
 > **Phase:** 2. Control Flow & Data | **Estimated time:** 1.5 hours | **Milestone Project:** No
 
 ## Prerequisites
-- [Module 001: Print & Comments](../module-001-print-and-comments/README.md)
-- [Module 002: Variables & Data Types](../module-002-variables-and-data-types/README.md)
-- [Module 005: Type Conversion](../module-005-type-conversion/README.md)
-- [Module 007: Operators](../module-007-operators/README.md)
+- [Module 002: Your First Python Program (print)](../module-002-your-first-python-program/README.md)
+- [Module 003: Variables and Data Types](../module-003-variables-and-data-types/README.md)
+- [Module 004: Type Conversion and Casting](../module-004-type-conversion-and-casting/README.md)
+- [Module 006: Operators](../module-006-operators/README.md)
 
 ## Learning Objectives
 - Understand the Boolean type (`bool`) and its two values: `True` and `False`
