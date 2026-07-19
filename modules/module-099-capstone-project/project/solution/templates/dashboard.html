@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Task Manager{% endblock %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+    <div class="card" style="text-align: center;">
+        <h2 style="font-size: 3rem; color: #4a90d9;">{{ stats.total_tasks }}</h2>
+        <p>Total Tasks</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+        <h2 style="font-size: 3rem; color: #f39c12;">{{ stats.by_status['pending'] }}</h2>
+        <p>Pending</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+        <h2 style="font-size: 3rem; color: #3498db;">{{ stats.by_status['in_progress'] }}</h2>
+        <p>In Progress</p>
+    </div>
+
+    <div class="card" style="text-align: center;">
+        <h2 style="font-size: 3rem; color: #27ae60;">{{ stats.by_status['completed'] }}</h2>
+        <p>Completed</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Tasks by Priority</h2>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+        <thead>
+            <tr style="background: #f8f9fa;">
+                <th style="padding: 0.5rem; text-align: left;">Priority</th>
+                <th style="padding: 0.5rem; text-align: right;">Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in ['1', '2', '3', '4', '5'] %}
+            <tr>
+                <td style="padding: 0.5rem;">Priority {{ p }}</td>
+                <td style="padding: 0.5rem; text-align: right;">{{ stats.by_priority[p] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Recent Activity</h2>
+    <p>Tasks updated in the last 24 hours: <strong>{{ stats.recent_updates }}</strong></p>
+</div>
+{% endblock %}

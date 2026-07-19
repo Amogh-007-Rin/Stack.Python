@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - Task Manager{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center; padding: 3rem;">
+    <h1>500</h1>
+    <p style="font-size: 1.2rem; margin: 1rem 0;">{{ detail }}</p>
+    <p>An unexpected error occurred. Please try again later.</p>
+    <a href="/" class="btn btn-primary">Go Home</a>
+</div>
+{% endblock %}

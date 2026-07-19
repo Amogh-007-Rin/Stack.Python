@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Tasks - Task Manager{% endblock %}
+
+{% block content %}
+<h1>Tasks</h1>
+
+<div class="card">
+    <form action="/" method="get" style="display: flex; gap: 1rem; align-items: end;">
+        <div>
+            <label for="status">Status</label>
+            <select name="status" id="status">
+                <option value="">All</option>
+                <option value="pending" {% if request.query_params.status == 'pending' %}selected{% endif %}>Pending</option>
+                <option value="in_progress" {% if request.query_params.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                <option value="completed" {% if request.query_params.status == 'completed' %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+        <div>
+            <label for="category_id">Category</label>
+            <select name="category_id" id="category_id">
+                <option value="">All</option>
+                {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if request.query_params.category_id|string == cat.id|string %}selected{% endif %}>{{ cat.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/" class="btn btn-primary">Clear</a>
+        <a href="/tasks/new" class="btn btn-success" style="margin-left: auto;">+ New Task</a>
+    </form>
+</div>
+
+{% for task in tasks %}
+<div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: start;">
+        <div>
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.description[:200] }}{% if task.description|length > 200 %}...{% endif %}</p>
+            <small>
+                Priority: {{ task.priority }} |
+                Category: {{ task.category.name if task.category else 'None' }} |
+                Updated: {{ task.updated_at.strftime('%Y-%m-%d %H:%M') }}
+            </small>
+        </div>
+        <div style="text-align: right;">
+            <span class="badge badge-{{ task.status.value }}">{{ task.status.value }}</span>
+            <div style="margin-top: 0.5rem;">
+                <a href="/tasks/{{ task.id }}/edit" class="btn btn-primary">Edit</a>
+                <form action="/tasks/{{ task.id }}/delete" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this task?')">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="card">
+    <p>No tasks found. <a href="/tasks/new">Create one</a>.</p>
+</div>
+{% endfor %}
+{% endblock %}
