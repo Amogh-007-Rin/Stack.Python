@@ -1,6 +1,8 @@
 <img src="assets/images/Repository-Banner.png" alt="Stack.Python logo showing a stylized green snake coiled around three stacked books next to the text Stack.Python with a small snake emoji; white background; friendly and approachable educational tone"></img>
 
-# Stack.Python 🐍
+<div style="text-align: center; margin-top: 1rem; margin-bottom: 1rem;">
+  <h1>Stack.Python 🐍</h1>
+</div>
 
 **A 0–100, linear, project-based Python learning sandbox for absolute beginners.**  
 101 modules. 11 milestone projects. Zero assumed knowledge. One clear path from zero to deploy.
