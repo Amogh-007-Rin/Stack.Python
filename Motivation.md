@@ -1,0 +1,9 @@
+I work a teaching assistant i have observed something during the teaching hours that many students want to learn programming and development but often got lost while finding best resources to learn and even when they find a resource to learn and complete it they still feel underconfident to start building something and then they get back to learn the same stuff again from different source this traps them in tutorial hell and majority students are stuck init. And many courses are paid and provide only surface level knowledge. I have also faced this issue when i started learning coding.  
+
+A lot of students told me that they wants to learn python. And wants to learn all the applications of python such as AI, Machine Learning, Web Development with Python. Backend Development and many more things that can be done using python. And the problem they face is they dont have a single resource that covers all of them with hands on learning and project driven learning.
+
+To solve this issue i spent all the weekend to build this repo with the help of AI and Coding agenets and my personal experience and created the Stack.Python opensource repo to help exactly this kind of students. Its completely free, easy to navigate and is foccused on project/Problem driven learning.
+
+I wanted to contribute to the opensource resource providing community i hope this will help students who has the hunger to learn and develop things that can solve problems. 
+
+And i also want to quote AI is such a power full tool to use in education industry. I would have taken more than 10 to 15 days to creat this resource if i have did it manually now can be done in a weekend with AI assisted coding. This is something to be learned and applied without compramise. 
