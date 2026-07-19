@@ -1,0 +1,55 @@
+name: Link Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check internal links
+        run: |
+          python -c "
+import re
+from pathlib import Path
+
+errors = []
+modules_dir = Path('modules')
+readme_files = sorted(modules_dir.rglob('README.md'))
+
+# Collect all module README paths for link resolution
+all_readmes = {p.relative_to(modules_dir).parent.name: p for p in readme_files}
+
+for readme in readme_files:
+    content = readme.read_text()
+    # Find all markdown links: [text](path)
+    links = re.findall(r'\[([^\]]+)\]\(([^)]+)\)', content)
+    for text, link in links:
+        # Skip external links
+        if link.startswith('http://') or link.startswith('https://') or link.startswith('#'):
+            continue
+        # Resolve relative to the README's directory
+        target = readme.parent / link
+        if not target.exists():
+            # Try resolving as module link
+            if link.startswith('modules/'):
+                target2 = modules_dir.parent / link
+                if not target2.exists():
+                    errors.append(f'{readme}: Link \"{link}\" (text: {text}) does not resolve')
+            else:
+                errors.append(f'{readme}: Link \"{link}\" (text: {text}) does not resolve')
+
+if errors:
+    for e in errors:
+        print(f'ERROR: {e}')
+    exit(1)
+else:
+    print('All internal links resolve correctly.')
+"
